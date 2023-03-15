@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
             TestDbView.append(hp);
             TestDbView.append("\n");
 
+
         }
     }
     public void onClickDrop(View view) {
