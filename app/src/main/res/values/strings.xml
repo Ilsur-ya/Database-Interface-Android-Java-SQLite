@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MyGame</string>
+
+
+
+
+    //База данных
+    <string name="hint">HP</string>
+
+
+</resources>
