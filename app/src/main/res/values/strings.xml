@@ -2,6 +2,11 @@
     <string name="app_name">MyGame</string>
 
 
+    //interface
+    <string name="Search">Search</string>
+    <string name="BuyPower">Buy power</string>
+    <string name="Healing">Healing</string>
+    <string name="hintg">HP</string>
 
 
     //База данных

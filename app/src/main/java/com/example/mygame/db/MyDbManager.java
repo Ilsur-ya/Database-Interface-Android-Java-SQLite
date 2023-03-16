@@ -33,7 +33,7 @@ public class MyDbManager {
         myDbHelper.close();
     }
 
-    public void insertToDb(String hp, String money, String power){
+    public void insertToDb(int hp, int money, int power){
         ContentValues cv = new ContentValues();
         cv.put(MyDbConstants.HP, hp);
         cv.put(MyDbConstants.MONEY, money);
@@ -42,22 +42,49 @@ public class MyDbManager {
         db.insert(MyDbConstants.TABLE_NAME, null, cv);
 
     }
+
+    public void updateDb(int hp, int money, int power){
+        ContentValues cv = new ContentValues();
+        cv.put(MyDbConstants.HP, hp);
+        cv.put(MyDbConstants.MONEY, money);
+        cv.put(MyDbConstants.POWER, power);
+
+        int lastPower = Integer.parseInt(getFromDb());
+
+        Cursor cursor = db.query(MyDbConstants.TABLE_NAME, null, null,
+                null, null, null, MyDbConstants._ID);
+        cursor.moveToLast();
+        String idLast = cursor.getString(cursor.getColumnIndexOrThrow(MyDbConstants._ID));
+
+
+
+        String selection = "_id = ?";
+        String[] selectionArgs = { idLast };
+
+        int count = db.update(MyDbConstants.TABLE_NAME,
+                cv,
+                selection,
+                selectionArgs);
+    }
     public void dropTable(){
 
     }
-    public List<String> getFromDb(){
-        List<String> tempList = new ArrayList<>();
+    public String getFromDb(){
+        String lastPower = new String();
 
         Cursor cursor = db.query(MyDbConstants.TABLE_NAME, null, null,
-                null, null, null, null);
-        while (cursor.moveToNext()) {
-            String hp = cursor.getString(cursor.getColumnIndexOrThrow(MyDbConstants.HP));
-            tempList.add(hp);
-        }
+                null, null, null, MyDbConstants._ID);
+        cursor.moveToLast();
+        String power = cursor.getString(cursor.getColumnIndexOrThrow(MyDbConstants.POWER));
+        lastPower = power;
+        //while (cursor.moveToPrevious()) {
+        //    String power = cursor.getString(cursor.getColumnIndexOrThrow(MyDbConstants.POWER));
+        //    lastPower = power;
+        //}
 
 
         cursor.close();
-        return tempList;
+        return lastPower;
     }
 
 }

@@ -10,6 +10,10 @@ public class MyDbConstants {
     public static final String POWER = "Power";
     public static final int DB_VERSION = 1;
     public static final String TABLE_STRUCTURE = "CREATE TABLE IF NOT EXISTS " +
-            TABLE_NAME + " (" + _ID + " INTEGER PRIMARY KEY, " + TITLE + " TEXT, " + HP + " TEXT, " + POWER + " TEXT, " + MONEY + " TEXT)";
+            TABLE_NAME + " (" + _ID + " INTEGER PRIMARY KEY, "
+            + TITLE + " TEXT, "
+            + HP + " INTEGER, "
+            + POWER + " INTEGER, "
+            + MONEY + " INTEGER)";
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
 }

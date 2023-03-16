@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private MyDbManager myDbManager;
     private EditText editHP, editMoney, editPower;
     private TextView TestDbView;
-
+    private TextView StrengthTextView, MoneyTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         editMoney = findViewById(R.id.editMoney);
         editPower = findViewById(R.id.editPower);
         TestDbView = findViewById(R.id.TestDbView);
+        StrengthTextView = findViewById(R.id.StrengthTextView);
+        MoneyTextView = findViewById(R.id.MoneyTextView);
 
     }
 
@@ -34,33 +36,46 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         myDbManager.openDb();
-        for(String hp : myDbManager.getFromDb()){
-            TestDbView.append(hp);
-            TestDbView.append("\n");
+        String power = myDbManager.getFromDb();
+        TestDbView.append(power);
+        TestDbView.append("\n");
+        StrengthTextView.setText(power);
 
-        }
+
     }
 
     public void onClickSave(View view) {
         TestDbView.setText("");
-        myDbManager.insertToDb(editHP.getText().toString(), editMoney.getText().toString(), editPower.getText().toString());
-        for(String hp : myDbManager.getFromDb()){
+        myDbManager.insertToDb(Integer.parseInt(editHP.getText().toString()),
+                Integer.parseInt(editMoney.getText().toString()),
+                Integer.parseInt(editPower.getText().toString()));
+        String hp = myDbManager.getFromDb();
 
-            TestDbView.append(hp);
-            TestDbView.append("\n");
 
 
-        }
+
+
+    }
+
+    public void onClickSearch(View view) {
+        TestDbView.setText("");
+
+        myDbManager.updateDb(Integer.parseInt(editHP.getText().toString()),
+                Integer.parseInt(editMoney.getText().toString()),
+                Integer.parseInt(editPower.getText().toString()));
+
+        String power = myDbManager.getFromDb();
+
+        StrengthTextView.setText(power);
+
+
+
+
     }
     public void onClickDrop(View view) {
         TestDbView.setText("");
 
-        for(String hp : myDbManager.getFromDb()){
 
-            TestDbView.append(hp);
-            TestDbView.append("\n");
-
-        }
     }
 
     @Override
