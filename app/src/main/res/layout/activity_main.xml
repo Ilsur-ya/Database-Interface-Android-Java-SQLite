@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MoneyTmageView"
+    android:id="@+id/MoneyImageView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -10,8 +10,8 @@
 
     <TextView
         android:id="@+id/TestDbView"
-        android:layout_width="332dp"
-        android:layout_height="463dp"
+        android:layout_width="326dp"
+        android:layout_height="52dp"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,13 +24,13 @@
         android:id="@+id/editHP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
-        android:hint="@string/hint"
+        android:hint="edit hp"
 
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,12 +38,13 @@
         android:id="@+id/editMoney"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
 
+        android:hint="edit money"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPower" />
 
@@ -51,12 +52,13 @@
         android:id="@+id/editPower"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
 
+        android:hint="edit strength"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.965"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editHP" />
 
@@ -77,7 +79,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="144dp"
-        android:onClick="onClickSave"
+        android:onClick="onClickDrop"
         android:text="Drop Table"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,10 +88,10 @@
 
     <Button
         android:id="@+id/FightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="67dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:onClick="onClickSearch"
         android:text="@string/Search"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,70 +99,130 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="122dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/Healing"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/FightButton" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_width="105dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="8dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.681"
         app:layout_constraintStart_toEndOf="@+id/button2" />
 
-    <ImageView
-        android:id="@+id/MoneyImageView"
-        android:layout_width="26dp"
-        android:layout_height="26dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/StrengthImageView"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+    <LinearLayout
+        android:id="@+id/StatsVerticalLayout"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="4dp">
 
-    <ProgressBar
-        android:id="@+id/HPprogressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="76dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:indeterminate="false"
-        android:max="100"
-        android:progress="50"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/LevelLinearLayout"
+            android:layout_width="135dp"
+            android:layout_height="18dp"
+            android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/StrengthImageView"
-        android:layout_width="27dp"
-        android:layout_height="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/HPprogressBar"
-        app:srcCompat="@android:drawable/ic_menu_edit" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="19dp"
+                android:layout_height="16dp"
+                app:srcCompat="@android:drawable/arrow_up_float" />
 
-    <TextView
-        android:id="@+id/StrengthTextView"
-        android:layout_width="69dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="4dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/StrengthImageView"
-        app:layout_constraintTop_toBottomOf="@+id/HPprogressBar" />
+            <TextView
+                android:id="@+id/LevelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/StatsLevel" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/MoneyTextView"
-        android:layout_width="69dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        app:layout_constraintStart_toEndOf="@+id/MoneyImageView"
-        app:layout_constraintTop_toBottomOf="@+id/StrengthTextView" />
+        <LinearLayout
+            android:id="@+id/ExpLinearLayout"
+            android:layout_width="133dp"
+            android:layout_height="19dp"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/ExpProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="71dp"
+                android:layout_height="14dp" />
+
+            <TextView
+                android:id="@+id/ExperienceTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/StatsExp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/HPLinearLayout"
+            android:layout_width="135dp"
+            android:layout_height="20dp"
+            android:orientation="horizontal">
+
+            <ProgressBar
+                android:id="@+id/HPProgressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="76dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="false"
+                android:max="100"
+                android:progress="1" />
+
+            <TextView
+                android:id="@+id/HPTextView"
+                android:layout_width="56dp"
+                android:layout_height="20dp"
+                android:text="@string/StatsHP" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/MoneyLinearLayout"
+            android:layout_width="97dp"
+            android:layout_height="27dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/MoneyImageView"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                app:srcCompat="@android:drawable/btn_star_big_on" />
+
+            <TextView
+                android:id="@+id/MoneyTextView"
+                android:layout_width="69dp"
+                android:layout_height="26dp"
+                android:text="@string/StatsMoney" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/StrengthLinearLayout"
+            android:layout_width="99dp"
+            android:layout_height="24dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/StrengthImageView"
+                android:layout_width="27dp"
+                android:layout_height="24dp"
+                app:srcCompat="@android:drawable/ic_menu_edit" />
+
+            <TextView
+                android:id="@+id/StrengthTextView"
+                android:layout_width="69dp"
+                android:layout_height="24dp"
+                android:text="@string/StatsStrength" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

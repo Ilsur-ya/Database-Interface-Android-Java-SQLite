@@ -8,9 +8,19 @@
     <string name="Healing">Healing</string>
     <string name="hintg">HP</string>
 
+    //stats
+    <string name="StatsHP">HP</string>
+    <string name="StatsMaxHP">MaxHP</string>
+    <string name="StatsStrength">Strength</string>
+    <string name="StatsLevel">Level</string>
+    <string name="StatsMoney">Money</string>
+    <string name="StatsExperience">EXP</string>
+    <string name="StatsExp">EXP</string>
+    <string name="StatsMaxExp">MaxEXP</string>
+
 
     //База данных
     <string name="hint">HP</string>
 
-
+    <integer name="hp">12</integer>
 </resources>
